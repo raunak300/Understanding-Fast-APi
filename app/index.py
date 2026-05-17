@@ -15,11 +15,10 @@ def get_products(id:int):
     else HTTPException(status_code=404, detail="not found by id")
     )
 
-@app.get("all-products")
+@app.get("/all-products")
 def get_all_products():
     all_products_data=all_products()
     if all_products_data:
-        #status code 200 is default for successful response so we can omit it
         return all_products_data
     else:
         return HTTPException(status_code=404,detail="no products found")
